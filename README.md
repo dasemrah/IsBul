@@ -15,7 +15,7 @@ Django-Web iş bulma ve ilan yayınlama platformu
 
 After cloning the github repo, run the following command in the application root directory:
 ```
-pip install requirements.txt
+pip install --upgrade -r requirements.txt
 ```
 
 Create the DB tables:
