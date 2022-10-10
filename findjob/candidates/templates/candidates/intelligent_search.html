@@ -1,0 +1,37 @@
+{%extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<div>
+<h3 class="text-center"><b>Senin için seçtiğimiz ilanlar</b></h3><br>
+{%if counter %}
+  <div class="row">
+    {% for job,common, job_skill in jobs %}
+    <div class="col-md-6">
+      <div class="card card-signin my-2">
+        <span class="ml-3 mt-3">
+          <a href="{% url 'job-detail' job.slug %}"
+            ><h4 class="text-dark">
+              <b>{{job.title}} ({{job.job_type}})</b>
+            </h4></a
+          >
+          <p style="font-size: 17px">{{job.company}}<br />{{job.location}}</p>
+          <p style="font-size: 15px">
+            {{job.description|truncatewords:30}} -
+            <a href="{% url 'job-detail' job.slug %}">Detay</a>
+          </p>
+        </span>
+        <div class="card-footer">
+          <span style="font-size: 18px"
+            >Bu iş için <b class="text-success">{{ common }} </b>gerekli <b class="text-danger">{{ job_skill }}</b> yeteneklere sahip değilsin.</span
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br />
+{% else %}
+<p class="text-center">Şu anda sizin için uygun ilan yok! <a href="{% url 'my-profile' %}">Profilinizi</a> kontrol edin.</p><br>
+{% endif %}
+</div>
+{% endblock content %}

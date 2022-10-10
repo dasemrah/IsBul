@@ -1,0 +1,20 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<div style="background-color: white">
+  <div class="row">
+    <div class="col-md-6">
+      <div style="background: transparent !important" class="jumbotron">
+        <h1 class="display-4 text-center">Bir sonraki işinizi buradan alın!</h1>
+        <p class="lead text-center">
+          <a
+            class="btn btn-primary btn-lg"
+            href="{% url 'home' %}"
+            role="button"
+            >Şimdi İş Arayın!</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

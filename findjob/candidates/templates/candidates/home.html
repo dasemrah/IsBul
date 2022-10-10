@@ -1,0 +1,104 @@
+{% extends "users/layout.html" %} {% load static %} {% block content %}
+<br /><br />
+<div class="container" style="background-image: url('https://i.ibb.co/bQzsFvW/remote.gif')">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+      <h2><b>İş ilanları ara</b></h2>
+      <form
+        class="form-signin mt-4"
+        action="{% url 'job-search-list' %}"
+        method="get"
+      >
+        <input
+          name="p"
+          type="text"
+          class="form-control"
+          placeholder="Bir yetenek veya şirket girin"
+        /><br />
+        <br />
+        <div class="form-group">
+          <button class="btn btn-lg btn-warning btn-block text-light" type="submit">
+            İlanlarda Ara
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+        {% if user.is_authenticcated %}
+        <p class="text-center">
+          <b
+            >İşveren misiniz? -
+            <a href="{% url 'add-job' %}">Bir ilan yayınlayın</a></b
+          >
+        </p>
+        {% else %}
+        <p class="text-center">
+          <b
+            >İşveren misiniz? -
+            <a href="{% url 'detail-recruiters' %}">Bir ilan yayınla</a></b
+          >
+        </p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              <b>En popüler alanlar:</b><br />
+            </h5>
+            <hr my-2 />
+
+            <form class="form-signin">
+              <div class="form-group">
+                <a
+                  class="btn btn-outline-primary mr-2 mt-2"
+                  href="/job/?p=software&q="
+                  >Yazılı Mühendisi</a
+                >
+                <a
+                  class="btn btn-outline-info mr-2 mt-2"
+                  href="/job/?p=internship&q="
+                  >Staj</a
+                >
+                <a
+                  class="btn btn-outline-danger mr-2 mt-2"
+                  href="/job/?p=product+manager&q="
+                  >Product Manager</a
+                >
+                <a
+                  class="btn btn-outline-secondary mr-2 mt-2"
+                  href="/job/?p=python&q="
+                  >Python</a
+                >
+                <a class="btn btn-outline-dark mr-2 mt-2" href="/job/?p=web&q="
+                  >Web</a
+                >
+                <a
+                  class="btn btn-outline-danger mr-2 mt-2"
+                  href="/job/?p=android&q="
+                  >Android</a
+                >
+                <a
+                  class="btn btn-outline-success mr-2 mt-2"
+                  href="/job/?p=analyst&q="
+                  >Analist</a
+                >
+                <a
+                  class="btn btn-outline-info mr-2 mt-2"
+                  href="/job/?p=sales&q="
+                  >Sales</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>
